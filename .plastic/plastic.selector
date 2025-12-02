@@ -1,0 +1,3 @@
+repository "Learn to Fly-Icarus Rising/Learn to Fly-Icarus Rising@5772767323002@cloud"
+  path "/"
+    smartbranch "/main"
