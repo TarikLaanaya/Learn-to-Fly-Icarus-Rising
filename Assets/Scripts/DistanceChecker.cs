@@ -26,6 +26,6 @@ public class DistanceChecker : MonoBehaviour
     {
         playerFlying = false;
 
-        SceneManager.instance.currencyManager.AddCurrency(distance / 10);
+        SceneManager.instance.currencyManager.AddCurrency(distance);
     }
 }

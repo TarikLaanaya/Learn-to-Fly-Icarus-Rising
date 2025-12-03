@@ -9,6 +9,8 @@ public class PlayerLoseCheck : MonoBehaviour
     [SerializeField] private GameObject playerModel;
     [SerializeField] private DistanceChecker distanceChecker;
     [SerializeField] private float timeBeforeFade = 4f;
+    [SerializeField] private UnityEngine.UI.Image blackoutImage;
+
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -27,6 +29,6 @@ public class PlayerLoseCheck : MonoBehaviour
     {
         yield return new WaitForSeconds(timeBeforeFade);
 
-        SceneManager.instance.FadeToScene("ShopScene");
+        SceneManager.instance.FadeToScene("ShopScene", blackoutImage, false);
     }
 }
