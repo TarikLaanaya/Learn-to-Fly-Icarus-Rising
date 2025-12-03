@@ -13,11 +13,18 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private float rotationInput;
     [HideInInspector] public bool isAlive = true;
+    private bool isStarted = false;
+    [SerializeField] private GameObject cutSceneObj;
+    [SerializeField] private Renderer modelRenderer;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         transform.position = new Vector3(0, SceneManager.instance.gameManager.playerStartHeight, 1);
+
+        isStarted = false;
+        rb.gravityScale = 0;
+        modelRenderer.enabled = false;
     }
 
     void Update()
@@ -25,11 +32,25 @@ public class PlayerController : MonoBehaviour
         rotationInput = Input.GetAxis("Horizontal");
 
         Debug.DrawRay(transform.position, rb.linearVelocity, Color.green);
+
+        // Cutscene logic
+        if (!isStarted)
+        {
+            if (cutSceneObj == null)
+            {
+                isStarted = true;
+                rb.gravityScale = 1;
+                modelRenderer.enabled = true;
+                return;
+            }
+
+            transform.position = cutSceneObj.transform.position;
+        }
     }
 
     void FixedUpdate()
     {
-        if (!isAlive) { rb.linearVelocity = Vector2.zero; return; }
+        if (!isAlive || !isStarted) { rb.linearVelocity = Vector2.zero; return; }
 
         // --- ROTATION --- //
 
