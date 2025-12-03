@@ -30,11 +30,11 @@ public class SceneManager : MonoBehaviour
     {
         if (blackoutImage != null)
         {
-            StartCoroutine(FadeRoutine(sceneName));
+            StartCoroutine(FadeToSceneCoroutine(sceneName)); // Move to the coroutine
         }
     }
 
-    private IEnumerator FadeRoutine(string sceneName)
+    private IEnumerator FadeToSceneCoroutine(string sceneName)
     {
         float alpha = blackoutImage.color.a;
 
