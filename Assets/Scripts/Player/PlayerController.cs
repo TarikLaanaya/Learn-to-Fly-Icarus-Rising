@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        transform.position = new Vector3(0, SceneManager.instance.gameManager.playerStartHeight, 0);
     }
 
     void Update()

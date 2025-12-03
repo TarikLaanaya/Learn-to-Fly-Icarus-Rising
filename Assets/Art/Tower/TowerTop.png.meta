@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e7bdbf3959a36e84f9c6da0095be2ce4
+guid: f72e7f53f563b434f9027df65a8427c1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2765467171962141693
-    second: ShopBackground_0
+      213: -8004344659389985319
+    second: TowerTop_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ShopBackground_0
+      name: TowerTop_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 2
         y: 0
-        width: 960
-        height: 540
+        width: 62
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 304413952461f99d0800000000000000
-      internalID: -2765467171962141693
+      spriteID: 9ddc34de0fadae090800000000000000
+      internalID: -8004344659389985319
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ShopBackground_0: -2765467171962141693
+      TowerTop_0: -8004344659389985319
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

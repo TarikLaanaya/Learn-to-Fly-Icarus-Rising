@@ -8,7 +8,7 @@ public class SceneManager : MonoBehaviour
     [SerializeField] private float fadeSpeed = .1f;
     public static SceneManager instance { get; private set; }
     public CurrencyManager currencyManager;
-    private UnityEngine.UI.Image blackoutImage;
+    public GameManager gameManager;
 
     void Awake()
     {
@@ -22,19 +22,14 @@ public class SceneManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        blackoutImage = GameObject.Find("Blackout").GetComponent<UnityEngine.UI.Image>();
     }
 
-    public void FadeToScene(string sceneName)
+    public void FadeToScene(string sceneName, UnityEngine.UI.Image blackoutImage, bool fadeInAndOut)
     {
-        if (blackoutImage != null)
-        {
-            StartCoroutine(FadeToSceneCoroutine(sceneName)); // Move to the coroutine
-        }
+        StartCoroutine(FadeToSceneCoroutine(sceneName, blackoutImage, fadeInAndOut)); // Move to the coroutine
     }
 
-    private IEnumerator FadeToSceneCoroutine(string sceneName)
+    private IEnumerator FadeToSceneCoroutine(string sceneName, UnityEngine.UI.Image blackoutImage, bool fadeInAndOut)
     {
         float alpha = blackoutImage.color.a;
 
@@ -47,5 +42,22 @@ public class SceneManager : MonoBehaviour
         }
 
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+
+        yield return null; // Wait one frame for the scene to load
+
+        if (fadeInAndOut)
+        {
+            blackoutImage = GameObject.Find("Blackout").GetComponent<UnityEngine.UI.Image>();
+
+            if (blackoutImage == null) yield break; // Exit if blackoutImage is not found
+
+            // Fade blackout away
+            while (alpha > 0f)
+            {
+                alpha -= fadeSpeed * Time.deltaTime;
+                blackoutImage.color = new Color(0f, 0f, 0f, alpha);
+                yield return null; // Wait for next frame
+            }
+        }
     }
 }

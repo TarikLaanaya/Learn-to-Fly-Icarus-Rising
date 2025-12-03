@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e7bdbf3959a36e84f9c6da0095be2ce4
+guid: 8947fa46f72e7494e825a4e9191fff17
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2765467171962141693
-    second: ShopBackground_0
+      213: 920359987191874966
+    second: HideItemUI_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ShopBackground_0
+      name: HideItemUI_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 960
-        height: 540
+        x: 414
+        y: 204
+        width: 132
+        height: 132
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 304413952461f99d0800000000000000
-      internalID: -2765467171962141693
+      spriteID: 6950e063886c5cc00800000000000000
+      internalID: 920359987191874966
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ShopBackground_0: -2765467171962141693
+      HideItemUI_0: 920359987191874966
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
