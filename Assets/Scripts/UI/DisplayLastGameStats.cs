@@ -67,7 +67,7 @@ public class DisplayLastGameStats : MonoBehaviour
         // Fade to black
         while (alpha > 0)
         {
-            alpha -= .6f * Time.deltaTime;
+            alpha -= 1.2f * Time.deltaTime;
             blackoutImage.color = new Color(0f, 0f, 0f, alpha);
             yield return null; // Wait for next frame
         }
