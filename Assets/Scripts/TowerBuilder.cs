@@ -10,7 +10,7 @@ public class TowerBuilder : MonoBehaviour
     void Start()
     {
         parentTransform = transform.parent.gameObject.transform;
-        parentTransform.position = new Vector2(parentTransform.position.x, SceneManager.instance.gameManager.towerHeight);
+        parentTransform.position = new Vector3(parentTransform.position.x, SceneManager.instance.gameManager.towerHeight, parentTransform.position.z);
 
         BuildTower();
     }
@@ -21,7 +21,7 @@ public class TowerBuilder : MonoBehaviour
 
         for (int i = 1; i < towerHeight / 9; i++)
         {
-            Instantiate(towerBlockPrefab, new Vector2(parentTransform.position.x, transform.position.y - distanceBetweenBlocks * i), Quaternion.identity);
+            Instantiate(towerBlockPrefab, new Vector3(-1.788411f, transform.position.y - distanceBetweenBlocks * i, parentTransform.position.z), Quaternion.identity);
         }
     }
 }
