@@ -56,6 +56,9 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.DeleteKey(wingUpgradeKey);
         PlayerPrefs.DeleteKey(boostUpgradeKey);
 
+        currentWingUpgrade = 0;
+        currentBoostUpgrade = 0;
+
         PlayerPrefs.Save();
     }
 }
