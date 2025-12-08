@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        transform.position = new Vector3(0, SceneManager.instance.gameManager.playerStartHeight, 1);
+        transform.position = new Vector3(0, SceneManager.instance.gameManager.playerStartHeight, transform.position.z);
 
         isStarted = false;
         rb.gravityScale = 0;

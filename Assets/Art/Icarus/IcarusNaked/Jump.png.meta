@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4a27a3d89d976c44c899205606f015b3
+guid: 7f20fbb03e1610444b1d22ea88c77a9e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3797761003736611725
-    second: Icarus_0
+      213: -5788802291748688381
+    second: pixil-frame-2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Icarus_0
+      name: pixil-frame-2_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 14
-        width: 23
-        height: 15
+        x: 0
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d8b3d81f28b54b430800000000000000
-      internalID: 3797761003736611725
+      spriteID: 30e2a5d6cfa0aafa0800000000000000
+      internalID: -5788802291748688381
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Icarus_0: 3797761003736611725
+      pixil-frame-2_0: -5788802291748688381
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
