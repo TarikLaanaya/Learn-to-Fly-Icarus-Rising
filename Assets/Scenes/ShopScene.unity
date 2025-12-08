@@ -308,6 +308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 1
+  ticked: 0
 --- !u!114 &155592771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -816,6 +817,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 5
+  ticked: 0
 --- !u!114 &392454320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1114,6 +1116,8 @@ MonoBehaviour:
   cost: 99
   costDisplayUI: {fileID: 793259892}
   shopCurrencyUI: {fileID: 144028644}
+  wingUpgrade: 0
+  upgradeAmount: 3
 --- !u!114 &488136362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1356,6 +1360,8 @@ MonoBehaviour:
   cost: 0
   costDisplayUI: {fileID: 793259892}
   shopCurrencyUI: {fileID: 144028644}
+  wingUpgrade: 1
+  upgradeAmount: 1
 --- !u!1 &561609302
 GameObject:
   m_ObjectHideFlags: 0
@@ -1560,13 +1566,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c0ebe9658d5dc429f68230377ff2f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  costDisplayUI: {fileID: 793259892}
+  shopCurrencyUI: {fileID: 144028644}
   tickBoxes:
+  - {fileID: 1434864721}
+  - {fileID: 1346638946}
+  - {fileID: 392454317}
+  - {fileID: 1366199583}
+  - {fileID: 803673387}
   - {fileID: 1389498331}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  currentlyHighlighted: []
   collectiveCost: 0
 --- !u!1 &583772467
 GameObject:
@@ -1701,6 +1710,8 @@ MonoBehaviour:
   cost: 40
   costDisplayUI: {fileID: 793259892}
   shopCurrencyUI: {fileID: 144028644}
+  wingUpgrade: 1
+  upgradeAmount: 3
 --- !u!114 &592839953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2121,6 +2132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 2
+  ticked: 0
 --- !u!114 &803673390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2354,6 +2366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 1
+  ticked: 0
 --- !u!114 &871616147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2502,13 +2515,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c0ebe9658d5dc429f68230377ff2f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  costDisplayUI: {fileID: 793259892}
+  shopCurrencyUI: {fileID: 144028644}
   tickBoxes:
+  - {fileID: 155592768}
+  - {fileID: 1835617665}
+  - {fileID: 2105748849}
+  - {fileID: 871616144}
+  - {fileID: 1781538746}
   - {fileID: 1605701315}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  currentlyHighlighted: []
   collectiveCost: 0
 --- !u!1 &930621107
 GameObject:
@@ -3393,6 +3409,8 @@ MonoBehaviour:
   cost: 50
   costDisplayUI: {fileID: 793259892}
   shopCurrencyUI: {fileID: 144028644}
+  wingUpgrade: 0
+  upgradeAmount: 1
 --- !u!114 &1292603493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3540,6 +3558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 7
+  ticked: 0
 --- !u!114 &1346638949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3687,6 +3706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 4
+  ticked: 0
 --- !u!114 &1366199586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3834,6 +3854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 1
+  ticked: 0
 --- !u!114 &1389498334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3981,6 +4002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 9
+  ticked: 0
 --- !u!114 &1434864724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4203,6 +4225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 1
+  ticked: 0
 --- !u!114 &1605701318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4448,6 +4471,8 @@ MonoBehaviour:
   cost: 77
   costDisplayUI: {fileID: 793259892}
   shopCurrencyUI: {fileID: 144028644}
+  wingUpgrade: 0
+  upgradeAmount: 2
 --- !u!114 &1747199018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4642,6 +4667,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 1
+  ticked: 0
 --- !u!114 &1781538749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4789,6 +4815,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 1
+  ticked: 0
 --- !u!114 &1835617668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5295,6 +5322,8 @@ MonoBehaviour:
   cost: 20
   costDisplayUI: {fileID: 793259892}
   shopCurrencyUI: {fileID: 144028644}
+  wingUpgrade: 1
+  upgradeAmount: 2
 --- !u!114 &2086967976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5579,6 +5608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 1
+  ticked: 0
 --- !u!114 &2105748852
 MonoBehaviour:
   m_ObjectHideFlags: 0
