@@ -5,8 +5,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int towerStartHeight = 46;
     [HideInInspector] public int towerHeight;
     [HideInInspector] public float playerStartHeight;
+    [SerializeField] private float playerHeightFromTowerDifference = 3.7f;
 
-    // --- Upgrades Data --- //
+    // --- Upgrades Save Data --- //
     private const string wingUpgradeKey = "WingUpgrade";
     private const string boostUpgradeKey = "BoostUpgrade";
     private int currentWingUpgrade;
@@ -15,7 +16,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         towerHeight = towerStartHeight;
-        playerStartHeight = towerHeight + 3.7f;
+        playerStartHeight = towerHeight + playerHeightFromTowerDifference;
 
         // If the key doesnt exist default to 0
         currentWingUpgrade = PlayerPrefs.GetInt(wingUpgradeKey, 0);

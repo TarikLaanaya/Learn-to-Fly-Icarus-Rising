@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private bool isStarted = false;
     [SerializeField] private GameObject cutSceneObj;
     [SerializeField] private Renderer modelRenderer;
+    private UpgradesHandler upgradesHandler;
 
     void Start()
     {
@@ -25,6 +26,16 @@ public class PlayerController : MonoBehaviour
         isStarted = false;
         rb.gravityScale = 0;
         modelRenderer.enabled = false;
+
+        // --- Set Upgrade Values --- //
+        upgradesHandler = GetComponent<UpgradesHandler>();
+        int currentWingUpgrade = SceneManager.instance.gameManager.GetCurrentWingUpgrade();
+        UpgradesHandler.WingUpgrade wingStruct = upgradesHandler.wingUpgrades[currentWingUpgrade]; // Grab the correct struct that has the current upgrade details
+
+        gravity = wingStruct.gravity;
+        maxSpeed = wingStruct.maxSpeed;
+        speedFactor = wingStruct.speedFactor;
+        deceleration = wingStruct.deceleration;
     }
 
     void Update()

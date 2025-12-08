@@ -2129,6 +2129,7 @@ GameObject:
   - component: {fileID: 2056208635}
   - component: {fileID: 2056208637}
   - component: {fileID: 2056208636}
+  - component: {fileID: 2056208638}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2200,6 +2201,31 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2056208638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056208634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f957b2072b9e9c54a91b0461149cb57a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wingUpgrades:
+  - gravity: 4
+    maxSpeed: 3
+    speedFactor: 0
+    deceleration: 3
+  - gravity: 4
+    maxSpeed: 9
+    speedFactor: 2.5
+    deceleration: 1.6
+  - gravity: 4
+    maxSpeed: 20
+    speedFactor: 5
+    deceleration: 1.5
 --- !u!1 &2117740713
 GameObject:
   m_ObjectHideFlags: 0
