@@ -2214,18 +2214,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wingUpgrades:
-  - gravity: 4
+  - gravity: 8
     maxSpeed: 3
     speedFactor: 0
     deceleration: 3
   - gravity: 4
-    maxSpeed: 9
+    maxSpeed: 15
     speedFactor: 2.5
     deceleration: 1.6
   - gravity: 4
     maxSpeed: 20
-    speedFactor: 5
+    speedFactor: 4
     deceleration: 1.5
+  - gravity: 5
+    maxSpeed: 23
+    speedFactor: 6
+    deceleration: 2
 --- !u!1 &2117740713
 GameObject:
   m_ObjectHideFlags: 0
@@ -2309,9 +2313,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 719566709168679401, guid: 920f3d8a8bda27e4f86772a0ce3899fb, type: 3}
+      propertyPath: percentageOfDistanceAsCurrency
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 1328738598930800985, guid: 920f3d8a8bda27e4f86772a0ce3899fb, type: 3}
       propertyPath: m_Name
       value: SceneManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3595420015159383021, guid: 920f3d8a8bda27e4f86772a0ce3899fb, type: 3}
+      propertyPath: towerStartHeight
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 9025481860991807925, guid: 920f3d8a8bda27e4f86772a0ce3899fb, type: 3}
       propertyPath: m_LocalPosition.x
