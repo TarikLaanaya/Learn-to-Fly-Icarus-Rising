@@ -13,4 +13,12 @@ public class UpgradesHandler : MonoBehaviour
     }
 
     public WingUpgrade[] wingUpgrades;
+
+    [System.Serializable]
+    public struct BoostUpgrade 
+    {
+        public float boostStrength;
+    }
+
+    public BoostUpgrade[] boostUpgrades;
 }
