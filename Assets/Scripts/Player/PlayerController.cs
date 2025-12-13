@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private float deceleration;
     private float currentSpeed;
     private float boostStrength;
+    private float fuelDepletionRate;
     private bool boosting;
 
     [SerializeField] float rotationSpeed = 200f;
@@ -23,9 +25,10 @@ public class PlayerController : MonoBehaviour
     private UpgradesHandler upgradesHandler;
     [SerializeField] private AudioSource jetPackAudioSource;
     private float rocketAudioClipLength;
-    [SerializeField] private AudioSource windAudio;
+    [SerializeField] private AudioSource windAudioSource;
     [SerializeField] private float speedToPitchMultiplier; 
     [SerializeField] private GameObject[] flames;
+    [SerializeField] private Slider boostFuelSlider;
     private GameObject currentFlame;
 
 
@@ -44,10 +47,11 @@ public class PlayerController : MonoBehaviour
         // --- Set Upgrade Values --- //#
 
         upgradesHandler = GetComponent<UpgradesHandler>();
+        GameManager gameManager = SceneManager.instance.gameManager;
 
         // Get the current upgrades
-        int currentWingUpgrade = SceneManager.instance.gameManager.GetCurrentWingUpgrade();
-        int currentBoostUpgrade = SceneManager.instance.gameManager.GetCurrentBoostUpgrade();
+        int currentWingUpgrade = gameManager.GetCurrentWingUpgrade();
+        int currentBoostUpgrade = gameManager.GetCurrentBoostUpgrade();
 
         // Grab the correct struct that has the current upgrade details
         UpgradesHandler.WingUpgrade wingStruct = upgradesHandler.wingUpgrades[currentWingUpgrade];
@@ -61,6 +65,7 @@ public class PlayerController : MonoBehaviour
 
         // Boost
         boostStrength = boostStruct.boostStrength;
+        fuelDepletionRate = upgradesHandler.fuelDepletionRate[gameManager.GetCurrentFuelUpgrade()];
 
         currentFlame = flames[0];
 
@@ -69,6 +74,14 @@ public class PlayerController : MonoBehaviour
             currentFlame = flames[1];
         }
 
+        if (currentBoostUpgrade > 0)
+        {
+            boostFuelSlider.gameObject.SetActive(true);
+        }
+        else
+        {
+            boostFuelSlider.gameObject.SetActive(false);
+        }
     }
 
     void Update()
@@ -77,7 +90,8 @@ public class PlayerController : MonoBehaviour
 
         Debug.DrawRay(transform.position, rb.linearVelocity, Color.green);
 
-        // Cutscene logic
+        // --- Cutscene logic --- //
+
         if (!isStarted)
         {
             if (cutSceneObj == null)
@@ -92,10 +106,32 @@ public class PlayerController : MonoBehaviour
             transform.position = cutSceneObj.transform.position;
         }
 
+        // -- Player Dead Check --- //
+
+        if (isStarted && !isAlive)
+        {
+            boostFuelSlider.gameObject.SetActive(false);
+        }
+
         if (!isAlive || !isStarted) return;
 
-        if (Input.GetKey(KeyCode.Space))
+        // --- Boost --- //
+
+        if (Input.GetKey(KeyCode.Space) && SceneManager.instance.gameManager.GetCurrentBoostUpgrade() > 0)
         {
+            if (boostFuelSlider.value > 0)
+            {
+                boostFuelSlider.value -= fuelDepletionRate * Time.deltaTime;
+            }
+            else
+            {
+                boosting = false;
+                currentFlame.SetActive(false);
+                jetPackAudioSource.Stop();
+                boostFuelSlider.gameObject.SetActive(false);
+                return;
+            }
+
             boosting = true;
             currentFlame.SetActive(true);
 
@@ -114,7 +150,9 @@ public class PlayerController : MonoBehaviour
             currentFlame.SetActive(false);
         }
 
-        windAudio.pitch = Mathf.Clamp(rb.linearVelocity.magnitude * speedToPitchMultiplier, 0.8f, 3f);
+        // --- Wind Audio --- //
+
+        windAudioSource.pitch = Mathf.Clamp(rb.linearVelocity.magnitude * speedToPitchMultiplier, 0.8f, 3f);
     }
 
     void FixedUpdate()

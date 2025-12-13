@@ -21,4 +21,6 @@ public class UpgradesHandler : MonoBehaviour
     }
 
     public BoostUpgrade[] boostUpgrades;
+
+    public float[] fuelDepletionRate;
 }

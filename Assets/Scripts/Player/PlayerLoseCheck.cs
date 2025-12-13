@@ -10,6 +10,7 @@ public class PlayerLoseCheck : MonoBehaviour
     [SerializeField] private DistanceChecker distanceChecker;
     [SerializeField] private float timeBeforeFade = 4f;
     [SerializeField] private UnityEngine.UI.Image blackoutImage;
+    [SerializeField] private GameObject splashSoundEffect;
 
 
     void OnTriggerEnter2D(Collider2D other)
@@ -18,6 +19,7 @@ public class PlayerLoseCheck : MonoBehaviour
         {
             playerController.isAlive = false;
             Instantiate(splashEffect, transform.position, Quaternion.identity);
+            Instantiate(splashSoundEffect, transform.position, Quaternion.identity);
             playerModel.SetActive(false);
 
             StartCoroutine(LoseSequence());
@@ -29,6 +31,7 @@ public class PlayerLoseCheck : MonoBehaviour
     {
         yield return new WaitForSeconds(timeBeforeFade);
 
+        SceneManager.instance.musicManager.StartMusic();
         SceneManager.instance.FadeToScene("ShopScene", blackoutImage, false);
     }
 }

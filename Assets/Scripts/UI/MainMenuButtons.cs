@@ -11,6 +11,7 @@ public class MainMenuButtons : MonoBehaviour
         SceneManager.instance.gameManager.ClearData();
         SceneManager.instance.currencyManager.ClearData();
 
+        SceneManager.instance.musicManager.StopMusic();
         SceneManager.instance.FadeToScene("GameScene", blackoutImage, true);
     }
 
@@ -25,6 +26,7 @@ public class MainMenuButtons : MonoBehaviour
 
         if (collectedInfo > 0)
         {
+            SceneManager.instance.musicManager.StopMusic();
             SceneManager.instance.FadeToScene("GameScene", blackoutImage, true);
         }
     }

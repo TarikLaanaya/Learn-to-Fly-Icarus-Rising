@@ -8,10 +8,14 @@ public class TickBox : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public int cost;
     [HideInInspector] public bool ticked = false;
 
+    void Awake()
+    {
+        tickFilledImage = transform.GetChild(0).GetComponent<UnityEngine.UI.Image>();
+    }
+
     void Start()
     {
         tickBoxManager = GetComponentInParent<TickBoxManager>();
-        tickFilledImage = transform.GetChild(0).GetComponent<UnityEngine.UI.Image>();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
