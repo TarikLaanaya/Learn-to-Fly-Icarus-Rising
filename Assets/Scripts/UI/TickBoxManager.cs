@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.SearchService;
 
 public class TickBoxManager : MonoBehaviour
 {
@@ -9,6 +10,32 @@ public class TickBoxManager : MonoBehaviour
     [SerializeField] private GameObject[] tickBoxes;
     [SerializeField] List<GameObject> currentlyHighlighted = new List<GameObject>();
     [SerializeField] private int collectiveCost;
+    [SerializeField] private bool fuelUpgrade;
+
+    void Start()
+    {
+        // --- Highlight already purchased upgrades --- //
+
+        int highestUpgradeIndex;
+
+        if (fuelUpgrade)
+        {
+            highestUpgradeIndex = SceneManager.instance.gameManager.GetCurrentFuelUpgrade();
+        }
+        else
+        {
+            highestUpgradeIndex = SceneManager.instance.gameManager.GetCurrentTowerUpgrade();
+        }
+
+        if (highestUpgradeIndex > 0)
+        {
+            for (int i = 0; i < highestUpgradeIndex; i++)
+            {
+                tickBoxes[i].GetComponent<TickBox>().Highlight();
+                tickBoxes[i].GetComponent<TickBox>().ticked = true;
+            }
+        }
+    }
 
     public void TickBoxHoveredOver(GameObject hoveredTickBox)
     {
@@ -70,6 +97,23 @@ public class TickBoxManager : MonoBehaviour
         {
             box.GetComponent<TickBox>().Highlight();
             box.GetComponent<TickBox>().ticked = true;
+        }
+        
+        // Set the upgrade in the game manager
+        int tickedBoxes = 0;
+
+        foreach (GameObject box in tickBoxes)
+        {
+            if (box.GetComponent<TickBox>().ticked) tickedBoxes++;
+        }
+
+        if (fuelUpgrade)
+        {
+            SceneManager.instance.gameManager.SetCurrentFuelUpgrade(tickedBoxes);
+        }
+        else
+        {
+            SceneManager.instance.gameManager.SetTowerUpgrade(tickedBoxes);
         }
 
         if (SceneManager.instance.currencyManager.SpendCurrency(collectiveCost))

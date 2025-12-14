@@ -9,6 +9,7 @@ public class SceneManager : MonoBehaviour
     public static SceneManager instance { get; private set; }
     public CurrencyManager currencyManager;
     public GameManager gameManager;
+    public MusicManager musicManager;
 
     void Awake()
     {
