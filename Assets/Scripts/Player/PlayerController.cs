@@ -218,6 +218,7 @@ public class PlayerController : MonoBehaviour
         endCustscene = true;
 
         transform.position = new Vector3(transform.position.x, 10000, transform.position.z);
+        transform.rotation = Quaternion.Euler(0, 0, 0);
 
         modelRenderer.enabled = false;
         jetpackModelRenderer.enabled = false;
