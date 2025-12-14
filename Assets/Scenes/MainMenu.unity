@@ -1186,6 +1186,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1638767976420714126, guid: 920f3d8a8bda27e4f86772a0ce3899fb, type: 3}
+      propertyPath: m_Volume
+      value: 0.545
+      objectReference: {fileID: 0}
     - target: {fileID: 9025481860991807925, guid: 920f3d8a8bda27e4f86772a0ce3899fb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.98342

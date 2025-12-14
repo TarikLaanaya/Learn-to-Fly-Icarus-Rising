@@ -17,8 +17,7 @@ public class MusicManager : MonoBehaviour
     {
         if (!musicSource.isPlaying && playMusic)
         {
-            musicSource.clip = musicClips[Random.Range(0, musicClips.Length)];
-            musicSource.Play();
+            musicSource.PlayOneShot(musicClips[Random.Range(0, musicClips.Length)]);
         }
     }
 
@@ -32,7 +31,7 @@ public class MusicManager : MonoBehaviour
     public void StartMusic()
     {
         playMusic = true;
-        
+
         StartCoroutine(IncreaseVolume());
     }
 
