@@ -29,6 +29,7 @@ public class DistanceChecker : MonoBehaviour
             playerController.Cutscene();
             endCutsceneHandler.StartCutscene();
             endCutsceneStarted = true;
+            SceneManager.instance.gameManager.gameWon = true;
         }
     }
 
