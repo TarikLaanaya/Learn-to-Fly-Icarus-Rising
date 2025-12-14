@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject[] flames;
     [SerializeField] private Slider boostFuelSlider;
     private GameObject currentFlame;
+    private bool endCustscene = false;
 
 
     void Start()
@@ -108,12 +109,12 @@ public class PlayerController : MonoBehaviour
 
         // -- Player Dead Check --- //
 
-        if (isStarted && !isAlive)
+        if (isStarted && !isAlive || endCustscene)
         {
             boostFuelSlider.gameObject.SetActive(false);
         }
 
-        if (!isAlive || !isStarted) return;
+        if (!isAlive || !isStarted || endCustscene) return;
 
         // --- Boost --- //
 
@@ -157,7 +158,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!isAlive || !isStarted) { rb.linearVelocity = Vector2.zero; return; }
+        if (!isAlive || !isStarted || endCustscene) { rb.linearVelocity = Vector2.zero; return; }
 
         // --- ROTATION --- //
 
@@ -210,5 +211,16 @@ public class PlayerController : MonoBehaviour
         currentSpeed = Mathf.Clamp(currentSpeed, 0, maxSpeed); // Clamp the speed
 
         rb.linearVelocity = modelTransform.right * currentSpeed + Vector3.up * -gravity; // Set velocity and add gravity
+    }
+
+    public void Cutscene()
+    {
+        endCustscene = true;
+
+        transform.position = new Vector3(transform.position.x, 10000, transform.position.z);
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+
+        modelRenderer.enabled = false;
+        jetpackModelRenderer.enabled = false;
     }
 }

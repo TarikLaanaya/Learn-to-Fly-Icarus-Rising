@@ -12,6 +12,7 @@ public class Parallax : MonoBehaviour
     private Material mat;
     private float xOffset;
     private float yOffset;
+    public bool endCutscene = false;
 
     void Start()
     {
@@ -27,6 +28,12 @@ public class Parallax : MonoBehaviour
         {
             float playerVelocityY = playerRb.linearVelocity.y;
             yOffset += playerVelocityY * Time.deltaTime * speed;
+        }
+
+        if(endCutscene)
+        {
+            yOffset = 0;
+            xOffset += 10 * Time.deltaTime * speed;
         }
         
         mat.mainTextureOffset = new Vector2(xOffset, yOffset);

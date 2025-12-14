@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     private int currentFuelUpgrade;
     public int currentTowerUpgrade;
 
+    public bool gameWon = false;
+
     void Awake()
     {
         // If the key doesnt exist default to 0

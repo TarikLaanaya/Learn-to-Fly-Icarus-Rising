@@ -8,6 +8,9 @@ public class DistanceChecker : MonoBehaviour
     private TMP_Text distanceUI;
     private int distance;
     private bool playerFlying = true;
+    [SerializeField] private PlayerController playerController;
+    [SerializeField] private EndCutsceneHandler endCutsceneHandler;
+    private bool endCutsceneStarted = false;
 
     void Start()
     {
@@ -16,10 +19,18 @@ public class DistanceChecker : MonoBehaviour
 
     void Update()
     {
-        if (!playerFlying) return;
+        if (!playerFlying || endCutsceneStarted) return;
 
         distance = Mathf.FloorToInt(playerTransform.position.x);
         distanceUI.text = distance.ToString() + " M";
+
+        if (distance > 10000)
+        {
+            playerController.Cutscene();
+            endCutsceneHandler.StartCutscene();
+            endCutsceneStarted = true;
+            SceneManager.instance.gameManager.gameWon = true;
+        }
     }
 
     public void StopDistanceCheck()
